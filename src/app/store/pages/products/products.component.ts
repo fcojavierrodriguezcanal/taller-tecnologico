@@ -15,9 +15,12 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this._productsService.getProducts().subscribe((products: Product[]) => {      
+    this._productsService.getProducts().subscribe(
+      (products: Product[]) => {
       this.productsByCategory = this._groupByCategory(products);
-    });
+      console.log(this.productsByCategory);
+    }
+    );
 
   }
 
@@ -35,6 +38,10 @@ export class ProductsComponent implements OnInit {
       }
     });
     return listGroup;
+  }
+  prueba(product:Product){
+    this._productsService.addCart(product).subscribe((d)=>console.log("Acabé",d));
+    
   }
 
 }

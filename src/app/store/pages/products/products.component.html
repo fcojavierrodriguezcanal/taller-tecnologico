@@ -1,1 +1,14 @@
-<span>Products component!</span>
+<div *ngFor="let item of productsByCategory">
+  <h2>{{item.category}}</h2>
+
+<div class="card" *ngFor="let product of item.products" style="width: 18rem;">
+  <img [src]="product.image" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{product.title}}</h5>
+    <p class="card-text">{{product.description}}</p>
+    <a href="#" class="btn btn-primary" (click)="prueba(product)">COMPRAR</a>
+  </div>
+</div>
+
+
+</div>
